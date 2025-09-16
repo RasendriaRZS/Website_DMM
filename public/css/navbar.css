@@ -1,0 +1,154 @@
+/* --- Navbar Color & Font --- */
+.floating-navbar {
+    background: transparent;
+    transition: background 0.4s, box-shadow 0.4s;
+    box-shadow: none;
+}
+.floating-navbar .navbar-brand,
+.floating-navbar .nav-link.nav-anim {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0, 44, 87, 0.1);
+    transition: color 0.3s;
+}
+.floating-navbar.scrolled {
+    background: #fff !important;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.07);
+}
+.floating-navbar.scrolled .navbar-brand,
+.floating-navbar.scrolled .nav-link.nav-anim {
+    color: #222 !important;
+    text-shadow: none;
+}
+
+/* --- Underline Animasi pada Menu --- */
+.floating-navbar .nav-link.nav-anim {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.03rem;
+    padding: 0.7rem 1.2rem;
+    background: none !important;
+    border: none;
+    outline: none;
+    letter-spacing: 0.01em;
+    transition: color 0.3s;
+    margin: 0 0.05rem;
+    z-index: 1;
+}
+.floating-navbar .nav-link.nav-anim::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0dcaf0 0%, #3b82f6 100%);
+    border-radius: 2px;
+    transition: width 0.32s cubic-bezier(0.4, 2, 0.6, 1), background 0.3s;
+}
+.floating-navbar .nav-link.nav-anim:hover::after,
+.floating-navbar .nav-link.nav-anim.active::after,
+.floating-navbar .nav-link.nav-anim:focus::after {
+    width: 70%;
+}
+.floating-navbar.scrolled .nav-link.nav-anim::after {
+    background: linear-gradient(90deg, #223 0%, #555 100%);
+}
+
+/* --- Navbar Toggler (Burger) Modern --- */
+.navbar-toggler {
+    border: none !important;
+    background: rgba(13, 202, 240, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(13, 202, 240, 0.08);
+    padding: 0.4rem 0.7rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+    background: linear-gradient(90deg, #0dcaf0 0%, #3b82f6 100%);
+    box-shadow: 0 4px 16px rgba(13, 202, 240, 0.13);
+    outline: none;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(13,202,240,0.95)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M6 8h20M6 16h20M6 24h20'/%3e%3c/svg%3e");
+    width: 2em;
+    height: 2em;
+}
+
+/* --- Dropdown Menu Interaktif --- */
+.custom-dropdown {
+    border: none;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.12);
+    border-radius: 1.2rem;
+    min-width: 220px;
+    padding: 0.6rem 0.2rem;
+    animation-duration: 0.32s;
+    animation-fill-mode: both;
+    animation-name: fadeInDown;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.custom-dropdown .dropdown-item {
+    border-radius: 0.7rem;
+    font-weight: 500;
+    font-size: 1.03rem;
+    color: #223;
+    padding: 0.7rem 1.2rem;
+    margin: 0.1rem 0.3rem;
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+    position: relative;
+}
+.custom-dropdown .dropdown-item:hover,
+.custom-dropdown .dropdown-item:focus {
+    background: linear-gradient(90deg, #0dcaf0 0%, #3b82f6 100%);
+    color: #fff;
+    transform: translateX(3px) scale(1.03);
+    box-shadow: 0 2px 12px rgba(13, 202, 240, 0.13);
+    z-index: 2;
+}
+.custom-dropdown .dropdown-divider {
+    margin: 0.3rem 0;
+    border-top: 2px solid #e5eaf2;
+    border-radius: 99px;
+}
+.dropdown-menu.custom-dropdown.show {
+    display: block !important;
+    animation: fadeInDown 0.32s;
+}
+
+/* --- Responsive: background solid putih di mobile, font & padding minimalis --- */
+@media (max-width: 991.98px) {
+    .floating-navbar {
+        background: #fff !important;
+        box-shadow: 0 4px 24px rgba(44, 62, 80, 0.07);
+    }
+    .floating-navbar .navbar-brand,
+    .floating-navbar .nav-link.nav-anim {
+        color: #223 !important;
+        text-shadow: none;
+    }
+    .floating-navbar .nav-link.nav-anim {
+        font-size: 0.96rem;
+        padding: 0.58rem 0.7rem;
+    }
+    .floating-navbar .nav-link.nav-anim::after {
+        background: linear-gradient(90deg, #0dcaf0 0%, #3b82f6 100%);
+        height: 2.5px;
+        bottom: 4px;
+    }
+    .custom-dropdown .dropdown-item {
+        font-size: 0.97rem;
+        padding: 0.55rem 0.8rem;
+    }
+}
